@@ -4,6 +4,12 @@
 SELECT MAX(height), birthCountry
 FROM Master;
 
+SELECT MAX(height)
+FROM Master;
+
+SELECT birthCountry
+FROM Master;
+
 -- Something's not quite right...
 
 SELECT MAX(height), MAX(birthCountry)
@@ -16,7 +22,13 @@ SELECT MAX(height), birthCountry
 FROM Master
 GROUP BY birthCountry;
 
+-- GROUP BY multiple fields
+SELECT MAX(height), birthCountry, birthState
+FROM Master
+GROUP BY birthCountry, birthState;
+
 -- Same rules apply for other clauses...
+-- Maximum heights filtered by year vs not
 
 SELECT MAX(height) as max_height, birthCountry
 FROM Master

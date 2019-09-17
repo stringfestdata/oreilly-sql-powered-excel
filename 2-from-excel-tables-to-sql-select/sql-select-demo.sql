@@ -3,7 +3,7 @@ SELECT *
 FROM Master;
 
 -- Select all fields, 
--- first 100 records from Master table
+-- first 50 records from Master table
 SELECT *
 FROM Master
 LIMIT 50;
@@ -16,15 +16,19 @@ FROM Master;
 SELECT playerID, deathYear - birthYear
 FROM Master;
 
+-- Why are some NULL?
+SELECT playerID, birthYear, deathYear, deathYear - birthYear
+FROM Master;
+
 -- Alias as year_at_death
 SELECT playerID, deathYear - birthYear AS year_at_death
 FROM Master;
 
--- String first and last names together: ||
+-- Concatenate first and last names together: ||
 SELECT playerID, nameFirst || nameLast
 FROM Master;
 
 
 -- Add spacing: ||
-SELECT playerID, nameFirst || ' ' || nameLast
+SELECT playerID, nameFirst || ' ' || nameLast AS full_name 
 FROM Master;

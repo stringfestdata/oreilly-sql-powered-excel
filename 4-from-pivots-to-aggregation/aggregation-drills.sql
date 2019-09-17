@@ -1,15 +1,15 @@
 -- Do the following for the Teams table
 
 -- Get max and min runs
-SELECT MAX(R), MIN(R) 
+SELECT MAX(R) AS max_r, MIN(R) AS min_r 
 FROM Teams;
 
 -- Total number of home runs
--- Between 2001 and 2010
+-- Between 2000 and 2010
 -- named "total_homers"
 SELECT SUM(HR) AS total_homers
 FROM Teams
-WHERE yearID BETWEEN(2001, 2010)
+WHERE yearID BETWEEN 2000 AND 2010;
 
 -- Count records where G is null
 SELECT COUNT(*)
@@ -21,7 +21,6 @@ WHERE G IS NULL;
 SELECT COUNT(*)
 FROM Teams
 WHERE Attendance IS NOT NULL;
-
 
 -- Return a list of all years
 -- covered in the table

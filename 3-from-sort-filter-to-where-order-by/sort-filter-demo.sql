@@ -49,3 +49,31 @@ SELECT nameFirst, nameLast, deathYear - birthYear AS age_at_death
 FROM Master
 ORDER BY age_at_death DESC
 LIMIT 10;
+
+-- Use LIMIT similar to
+-- head() in data programs...
+
+SELECT * 
+FROM Master
+LIMIT 25;
+
+-- What about ascending order?
+SELECT nameFirst, nameLast, deathYear - birthYear AS age_at_death
+FROM Master
+ORDER BY age_at_death
+LIMIT 10;
+
+-- these are missing values...
+-- death year to be determined. 
+
+-- Look for NULLs
+SELECT *
+FROM Master
+WHERE birthyear IS NULL;
+
+-- Look for completed records
+SELECT *
+FROM Master
+WHERE birthyear IS NOT NULL;
+
+

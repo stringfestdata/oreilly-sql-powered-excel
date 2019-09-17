@@ -24,3 +24,10 @@ SELECT playerID, yearID, W - L AS win_diff
 FROM Managers
 ORDER BY win_diff DESC
 LIMIT 25;
+
+-- How many NULL values
+-- are in the rank field?
+
+SELECT *
+FROM Managers
+WHERE rank IS NULL;
