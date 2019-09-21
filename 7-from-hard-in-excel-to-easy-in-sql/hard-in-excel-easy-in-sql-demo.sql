@@ -1,3 +1,5 @@
+-- Subqueries
+
 -- Who is taller than 
 -- Randy Johnson? 
 -- playerID == johnsra05
@@ -9,7 +11,8 @@ WHERE playerID = 'johnsra05';
 SELECT height, playerID
 FROM Master
 WHERE height > 
--- Subquery
+-- Subquery:
+-- What is Randy Johnson's 
     (SELECT height
     FROM Master
     WHERE playerID = 'johnsra05');
@@ -23,6 +26,7 @@ WHERE height >
     FROM Master
     WHERE playerID = 'johnsra04');
     
+-- CASE statements:
 -- Create country groupings:
 -- USA/USA-bordering/Other
     
@@ -44,16 +48,19 @@ SELECT playerID, birthCountry,
 FROM Master
 ORDER BY  birthCountry;
 
+
+-- Common table expression
+
 -- Average of max height
 -- by country
-WITH avg_height AS 
+WITH max_height AS 
 (
         SELECT birthCountry, MAX(height) AS max_height
         FROM Master
         GROUP BY birthCountry
 )
 SELECT AVG(max_height) AS avg_max_height
-        FROM avg_height;
+        FROM max_height;
         
 -- Finding our orphaned college players
 
