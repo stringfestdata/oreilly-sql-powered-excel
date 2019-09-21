@@ -2,7 +2,7 @@ SELECT * FROM Teams;
 
 -- What teams had more wins
 -- than the 2016 Chicago Cubs?
--- 103 wins
+-- (They had 103 wins)
 
 SELECT yearID, name, W
 FROM Teams
