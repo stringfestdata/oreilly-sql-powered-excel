@@ -52,3 +52,20 @@ SELECT nameFirst, nameLast, awardID, yearID
 FROM Master INNER JOIN AwardsPlayers
 ON Master.playerID = AwardsPlayers.playerID;
 
+-- Or go ahead and sort/filter them!
+-- Select any fields
+SELECT nameFirst, nameLast, birthyear, awardID, yearID
+FROM Master INNER JOIN AwardsPlayers
+ON Master.playerID = AwardsPlayers.playerID
+WHERE birthyear < 1950
+ORDER BY yearid DESC;
+
+
+-- Go ahead and aggregate them!
+SELECT birthcountry, COUNT(awardID)
+FROM Master INNER JOIN AwardsPlayers
+ON Master.playerID = AwardsPlayers.playerID
+GROUP BY birthcountry
+HAVING COUNT(awardID) < 10
+ORDER BY COUNT(awardID) DESC;
+

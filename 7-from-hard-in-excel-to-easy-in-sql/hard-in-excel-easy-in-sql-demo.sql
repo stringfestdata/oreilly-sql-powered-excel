@@ -54,3 +54,15 @@ WITH avg_height AS
 )
 SELECT AVG(max_height) AS avg_max_height
         FROM avg_height;
+        
+-- Finding our orphaned college players
+
+WITH college_playing_null AS (
+    SELECT CollegePlaying.schoolID, playerID, yearID, name_full, city, state
+    FROM CollegePlaying LEFT OUTER JOIN Schools
+    ON CollegePlaying.schoolID = Schools.schoolID
+    WHERE Schools.schoolID IS NULL)
+
+SELECT college_playing_null.playerID, schoolID, yearID, nameFirst, nameLast
+FROM college_playing_null LEFT OUTER JOIN Master
+ON college_playing_null.playerID = Master.playerID;

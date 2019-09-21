@@ -20,7 +20,7 @@ WHERE inducted = 'Y';
 -- of the oldest individual inducted
 -- for each year of HoF inductions
 
-SELECT yearID, MIN(birthYear) AS min_birthyear, yearID - MIN(birthYear) AS age_at_induction
+SELECT yearID, nameFirst, nameLast, MIN(birthYear) AS min_birthyear, deathYear
 FROM Master INNER JOIN HallOfFame
 ON Master.playerID = HallOfFame.playerID
 GROUP BY yearID;
